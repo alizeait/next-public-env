@@ -33,7 +33,7 @@ jobs:
         run: yarn format:check
 
       - name: Type Check
-        run: yarn check-types
+        run: yarn workspace next-public-env run check-types
 
       - name: Test
         run: yarn workspace next-public-env run test
