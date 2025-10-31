@@ -45,7 +45,7 @@ jobs:
         run: yarn build:apps
 
       - name: Install Playwright Browsers
-        run: yarn workspace next-public-env run playwright install chrome
+        run: yarn workspace next-public-env run playwright install --with-deps
 
       - name: Test E2E
         run: yarn workspace next-public-env run test:e2e

@@ -151,7 +151,7 @@ describe('PublicEnv', () => {
 
     expect(scriptElement.type).toBe('script');
     expect(scriptElement.props.dangerouslySetInnerHTML.__html).toBe(
-      `window.__NEXT_PUBLIC_ENV = ${JSON.stringify(values)}`,
+      `(function i(n){window.__NEXT_PUBLIC_ENV||Object.defineProperty(window,"__NEXT_PUBLIC_ENV",{value:Object.freeze(n),enumerable:!0})})(${JSON.stringify(values)});`,
     );
   });
 
@@ -171,7 +171,7 @@ describe('PublicEnv', () => {
 
     expect(scriptElement.type).toBe('script');
     expect(scriptElement.props.dangerouslySetInnerHTML.__html).toBe(
-      `window.__NEXT_PUBLIC_ENV = ${JSON.stringify(values)}`,
+      `(function i(n){window.__NEXT_PUBLIC_ENV||Object.defineProperty(window,"__NEXT_PUBLIC_ENV",{value:Object.freeze(n),enumerable:!0})})(${JSON.stringify(values)});`,
     );
 
     rerender(<PublicEnv />);
@@ -212,7 +212,7 @@ describe('PublicEnv', () => {
     };
 
     expect(scriptElement.props.dangerouslySetInnerHTML.__html).toBe(
-      `window.__NEXT_PUBLIC_ENV = ${JSON.stringify(expectedConfig)}`,
+      `(function i(n){window.__NEXT_PUBLIC_ENV||Object.defineProperty(window,"__NEXT_PUBLIC_ENV",{value:Object.freeze(n),enumerable:!0})})(${JSON.stringify(expectedConfig)});`,
     );
   });
 
@@ -224,7 +224,22 @@ describe('PublicEnv', () => {
     const scriptElement = callback();
 
     expect(scriptElement.props.dangerouslySetInnerHTML.__html).toBe(
-      'window.__NEXT_PUBLIC_ENV = {}',
+      '(function i(n){window.__NEXT_PUBLIC_ENV||Object.defineProperty(window,"__NEXT_PUBLIC_ENV",{value:Object.freeze(n),enumerable:!0})})({});',
     );
+  });
+
+  it('should pass nonce to script tag', () => {
+    const values = {
+      API_URL: 'https://api.example.com',
+    };
+    const nonce = 'test-nonce';
+
+    const { PublicEnv } = createPublicEnv(values);
+    render(<PublicEnv nonce={nonce} />);
+
+    const callback = (useServerInsertedHTML as Mock).mock.calls[0][0];
+    const scriptElement = callback();
+
+    expect(scriptElement.props.nonce).toBe(nonce);
   });
 });

@@ -68,6 +68,8 @@ type Options<Shape extends z4.$ZodShape> = {
   dynamicRendering?: 'auto' | 'manual';
 };
 
+type PublicEnvType = (props: { nonce?: string }) => React.ReactElement;
+
 export function createPublicEnv<
   Shape extends z4.$ZodShape,
   T extends Record<keyof Shape, any>,
@@ -76,14 +78,14 @@ export function createPublicEnv<
   options: Options<Shape> & { schema: SchemaShapeFactory<Shape> },
 ): {
   getPublicEnv: () => z4.infer<z4.$ZodObject<Shape>>;
-  PublicEnv: () => React.ReactElement;
+  PublicEnv: PublicEnvType;
 };
 export function createPublicEnv<T extends Record<string, any>>(
   values: T,
   options?: Omit<Options<never>, 'schema'>,
 ): {
   getPublicEnv: () => T;
-  PublicEnv: () => React.ReactElement;
+  PublicEnv: PublicEnvType;
 };
 export function createPublicEnv(values: any, options?: Options<z4.$ZodShape>) {
   const schemaShapeFactory = options?.schema;
@@ -130,12 +132,12 @@ export function createPublicEnv(values: any, options?: Options<z4.$ZodShape>) {
      * A React component that serializes and flushes environment variables to
      * the client.
      */
-    PublicEnv() {
+    PublicEnv({ nonce }: { nonce?: string }) {
       if (dynamicRendering === 'auto') {
         noStore();
       }
 
-      return <FlushConfig config={stringifiedConfig} />;
+      return <FlushConfig config={stringifiedConfig} nonce={nonce} />;
     },
   };
 }
