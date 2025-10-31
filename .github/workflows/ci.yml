@@ -24,19 +24,28 @@ jobs:
           corepack enable
 
       - name: Install Dependencies
-        run: pnpm install
+        run: yarn install --immutable
 
       - name: Lint
-        run: pnpm lint
-
-      - name: Type Check
-        run: pnpm check-types
+        run: yarn lint
 
       - name: Format Check
-        run: pnpm format:check
+        run: yarn format:check
+
+      - name: Type Check
+        run: yarn workspace next-public-env run check-types
 
       - name: Test
-        run: pnpm test
+        run: yarn workspace next-public-env run test
 
-      - name: Build
-        run: pnpm build
+      - name: Build next-public-env
+        run: yarn workspace next-public-env run build
+
+      - name: Build apps
+        run: yarn build:apps
+
+      - name: Install Playwright Browsers
+        run: yarn workspace next-public-env run playwright install chrome
+
+      - name: Test E2E
+        run: yarn workspace next-public-env run test:e2e
