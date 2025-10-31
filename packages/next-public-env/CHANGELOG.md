@@ -1,5 +1,11 @@
 # next-public-env
 
+## 0.2.0
+
+### Minor Changes
+
+- [#3](https://github.com/alizeait/next-public-env/pull/3) [`46537d5`](https://github.com/alizeait/next-public-env/commit/46537d5b8db1c2e34135ccc43958692c0d511341) Thanks [@alizeait](https://github.com/alizeait)! - Freeze client-side object and add `nonce` to `PublicEnv` script
+
 ## 0.1.0
 
 ### Minor Changes
