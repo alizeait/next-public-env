@@ -1,0 +1,67 @@
+{
+  "name": "next-public-env",
+  "description": "Manage type-safe runtime environment variables in Next.js for both the server and client.",
+  "version": "0.0.1",
+  "author": "alizeait",
+  "license": "MIT",
+  "type": "module",
+  "types": "./dist/server/index.d.ts",
+  "exports": {
+    ".": {
+      "node": "./dist/server/index.js",
+      "browser": "./dist/browser/index.js",
+      "types": "./dist/server/index.d.ts",
+      "default": "./dist/server/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/server/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "check-types": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "next": "^14.0.0 || ^15.0.0 || ^16.0.0",
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
+    "zod": "^3.25.0 || ^4.0.0"
+  },
+  "dependencies": {
+    "zod": "^3.25.0 || ^4.0.0"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "zod"
+  ],
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^22.9.0",
+    "@types/react": "^19.2.2",
+    "jsdom": "^27.0.1",
+    "next": "^16.0.0",
+    "oxlint": "^1.24.0",
+    "prettier": "^3.6.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.1",
+    "zod": "^3.25.0 || ^4.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -21,3 +21,6 @@ coverage
 # OS
 .DS_Store
 Thumbs.db
+
+test-results
+playwright-report

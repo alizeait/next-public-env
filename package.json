@@ -1,45 +1,36 @@
 {
-  "name": "next-public-env",
-  "description": "Use both runtime and build environment variables in both the server and the client in your Next.js app",
-  "version": "0.0.0",
-  "author": "",
+  "name": "next-public-env-root",
+  "description": "Manage type-safe runtime environment variables in Next.js for both the server and client.",
+  "version": "0.0.1",
+  "author": "alizeait",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "files": [
-    "dist"
-  ],
+  "private": true,
   "scripts": {
-    "build": "tsup",
-    "test": "vitest run",
-    "test:watch": "vitest",
     "lint": "oxlint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check-types": "tsc --noEmit",
+    "build:apps": "yarn workspaces foreach --include '{next-14,next-15,next-16}' -pA  run build",
     "version-packages": "changeset version",
-    "release": "pnpm build && changeset publish"
+    "release": "changeset publish"
   },
-  "keywords": [],
   "devDependencies": {
     "@changesets/cli": "^2.29.7",
     "@types/node": "^22.9.0",
     "oxlint": "^1.24.0",
     "prettier": "^3.6.2",
-    "tsup": "^8.5.0",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.1"
+    "typescript": "^5.9.3"
   },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "engines": {
     "node": ">=20.0.0"
   },
-  "packageManager": "pnpm@10.19.0+sha512.c9fc7236e92adf5c8af42fd5bf1612df99c2ceb62f27047032f4720b33f8eacdde311865e91c411f2774f618d82f320808ecb51718bfa82c060c4ba7c76a32b8"
+  "packageManager": "yarn@4.10.3",
+  "resolutions": {
+    "@playwright/test": "1.56.1",
+    "playwright": "1.56.1"
+  }
 }
