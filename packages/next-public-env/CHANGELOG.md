@@ -1,5 +1,11 @@
 # next-public-env
 
+## 1.0.0
+
+### Major Changes
+
+- [#5](https://github.com/alizeait/next-public-env/pull/5) [`ec73e83`](https://github.com/alizeait/next-public-env/commit/ec73e833f17e81fc10c842409b5fb3772bea8dea) Thanks [@alizeait](https://github.com/alizeait)! - Release major version
+
 ## 0.2.0
 
 ### Minor Changes

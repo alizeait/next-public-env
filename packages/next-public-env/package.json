@@ -1,7 +1,7 @@
 {
   "name": "next-public-env",
   "description": "Manage type-safe runtime environment variables in Next.js for both the server and the client.",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "author": "alizeait",
   "license": "MIT",
   "type": "module",
