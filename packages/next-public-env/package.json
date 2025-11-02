@@ -1,6 +1,6 @@
 {
   "name": "next-public-env",
-  "description": "Manage type-safe runtime environment variables in Next.js for both the server and client.",
+  "description": "Manage type-safe runtime environment variables in Next.js for both the server and the client.",
   "version": "0.2.0",
   "author": "alizeait",
   "license": "MIT",
@@ -39,11 +39,6 @@
   "dependencies": {
     "zod": "^3.25.0 || ^4.0.0"
   },
-  "keywords": [
-    "nextjs",
-    "react",
-    "zod"
-  ],
   "devDependencies": {
     "@playwright/test": "^1.56.1",
     "@testing-library/dom": "^10.4.1",
@@ -61,6 +56,19 @@
     "vitest": "^4.0.1",
     "zod": "^3.25.0 || ^4.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alizeait/next-public-env.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alizeait/next-public-env/issues"
+  },
+  "homepage": "https://github.com/alizeait/next-public-env#readme",
+  "keywords": [
+    "nextjs",
+    "react",
+    "zod"
+  ],
   "engines": {
     "node": ">=20.0.0"
   }
