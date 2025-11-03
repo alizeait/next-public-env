@@ -10,7 +10,7 @@
     "lint": "oxlint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "build:apps": "yarn workspaces foreach --include '{next-14,next-15,next-16}' -pA  run build",
+    "build:apps": "yarn workspaces foreach --include '{next-14,next-15,next-16,next-16-standalone}' -pA  run build",
     "version-packages": "changeset version",
     "release": "changeset publish"
   },

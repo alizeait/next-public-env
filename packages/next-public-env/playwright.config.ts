@@ -43,6 +43,10 @@ export default defineConfig({
       name: 'next-14',
       use: { ...devices['Desktop Chrome'], baseURL: 'http://localhost:3002' },
     },
+    {
+      name: 'next-16-standalone',
+      use: { ...devices['Desktop Chrome'], baseURL: 'http://localhost:3003' },
+    },
   ],
 
   /* Run your local dev server before starting the tests */
@@ -66,6 +70,14 @@ export default defineConfig({
     {
       command: 'yarn workspace next-14 run start',
       port: 3002,
+      reuseExistingServer: !process.env.CI,
+      env,
+      stderr: 'pipe',
+      stdout: 'pipe',
+    },
+    {
+      command: 'yarn workspace next-16-standalone run start',
+      port: 3003,
       reuseExistingServer: !process.env.CI,
       env,
       stderr: 'pipe',

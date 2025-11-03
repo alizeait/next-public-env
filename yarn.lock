@@ -3245,6 +3245,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"next-16-standalone@workspace:apps/next-16-standalone":
+  version: 0.0.0-use.local
+  resolution: "next-16-standalone@workspace:apps/next-16-standalone"
+  dependencies:
+    "@tailwindcss/postcss": "npm:^4"
+    "@types/node": "npm:^20"
+    "@types/react": "npm:^19"
+    "@types/react-dom": "npm:^19"
+    next: "npm:^16.0.0"
+    next-public-env: "workspace:*"
+    react: "npm:19.2.0"
+    react-dom: "npm:19.2.0"
+    tailwindcss: "npm:^4"
+    typescript: "npm:^5"
+  languageName: unknown
+  linkType: soft
+
 "next-16@workspace:apps/next-16":
   version: 0.0.0-use.local
   resolution: "next-16@workspace:apps/next-16"
